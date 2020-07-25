@@ -48,5 +48,4 @@ public class AuthorizationTest extends TestBase {
                 .enter ()
                 .errorIsVisible ();
     }
-
 }
