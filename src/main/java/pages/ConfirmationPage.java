@@ -1,4 +1,5 @@
 package pages;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,6 +14,7 @@ public class ConfirmationPage extends BasePage {
 
     By verificationMessages = By.id ("otp-code-text");
 
+    @Step (value = "verification messages is visible")
     public ConfirmationPage verificationMessagesIsVisible() {
         isElementDisplayed (verificationMessages);
         return this;

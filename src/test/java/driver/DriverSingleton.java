@@ -1,6 +1,7 @@
 package driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.core.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
@@ -11,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverSingleton {
     private static EventFiringWebDriver driver;
+
 
 
     private DriverSingleton() {
