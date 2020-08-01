@@ -4,19 +4,18 @@ import io.qameta.allure.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.pagesYandex.AuthorizationYandexMusicPage;
-import pages.pagesYandex.YandexMusicMain;
+import pages.pagesYandex.YandexMusicMainPage;
 import test.BaseTest;
 
 public class YandexMusicTest extends BaseTest {
     AuthorizationYandexMusicPage authorizationYandexMusicPage;
-    YandexMusicMain yandexMusicMain;
+    YandexMusicMainPage yandexMusicMainPage;
 
     @BeforeMethod
     public void setup(){
         authorizationYandexMusicPage = new AuthorizationYandexMusicPage ();
-        yandexMusicMain = new YandexMusicMain ();
-        yandexMusicMain.open ();
-
+        yandexMusicMainPage = new YandexMusicMainPage ();
+        yandexMusicMainPage.open ();
     }
 
     @Epic("TESTING FOR Яндекс.Музыка ")
@@ -25,16 +24,15 @@ public class YandexMusicTest extends BaseTest {
     @Description("enter valid authorization data and check that we have passed the first stage of authorization")
     @Story ("test for login with valid credentials")
     @Test
-    public void positiveTestYandexMusicAuthorization() throws InterruptedException {
-        yandexMusicMain
+    public void positiveTestYandexMusicAuthorization() {
+        yandexMusicMainPage
                 .clickLoginButton ();
         authorizationYandexMusicPage
                 .fillInUserNameEnter ("test.y4ndex913.test.test")
                 .fillInPasswordEnter ("zyf2971313");
-        Thread.sleep (10000);
-        yandexMusicMain.clickAccountIcon();
-        Thread.sleep (5000);
-        yandexMusicMain.accountNameAssertTrue("test.y4ndex913.test.test");
+        yandexMusicMainPage
+                .clickAccountIcon()
+                .accountNameAssertTrue("test.y4ndex913.test.test");
 
 
     }

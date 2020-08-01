@@ -4,7 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import pages.BasePage;
 
-public class YandexMusicMain extends BasePage {
+public class YandexMusicMainPage extends BasePage {
 
     final String pageURL = "https://music.yandex.by/home";
 
@@ -16,20 +16,20 @@ public class YandexMusicMain extends BasePage {
         get (pageURL);
     }
 
-    public YandexMusicMain clickLoginButton() {
+    public YandexMusicMainPage clickLoginButton() {
         click (loginButton);
         return this;
     }
 
     @Step(value = "Click button account")
-    public YandexMusicMain clickAccountIcon() {
+    public YandexMusicMainPage clickAccountIcon() {
         windowHandle ();
         clickJs (accountIcon);
         return this;
     }
 
     @Step(value = "Compare the names of the user name with the display on the page {0} ")
-    public YandexMusicMain accountNameAssertTrue(String userName) {
+    public YandexMusicMainPage accountNameAssertTrue(String userName) {
         getText (accountName, userName);
         return this;
     }
