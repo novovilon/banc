@@ -1,7 +1,6 @@
 package driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.logging.log4j.core.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
@@ -31,7 +30,7 @@ public class DriverSingleton {
         driver.register(new WebDriverListener ());
         driver.manage ().window ().maximize ();
         driver.manage ().deleteAllCookies ();
-        driver.manage ().timeouts ().implicitlyWait (10, TimeUnit.SECONDS);
+        driver.manage ().timeouts ().implicitlyWait (15, TimeUnit.SECONDS);
     }
 
     public static void quit() {

@@ -1,10 +1,27 @@
-package test;
+package test.bakcTast;
 
 
 import io.qameta.allure.*;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.pagesBank.AuthorizationBankPage;
+import pages.pagesBank.ConfirmationPageBank;
+import test.BaseTest;
 
-public class AuthorizationTest extends TestBase {
+public class AuthorizationTestBank extends BaseTest {
+    AuthorizationBankPage authorizationBankPage;
+    ConfirmationPageBank confirmationPageBank;
+
+
+
+    @BeforeMethod
+    public void setup(){
+        authorizationBankPage = new AuthorizationBankPage();
+        confirmationPageBank = new ConfirmationPageBank ();
+        authorizationBankPage.open ();
+
+
+    }
 
     @Epic ("TESTING FOR Банк санкт-петербург ")
     @Feature (value = "Authorization")
@@ -12,8 +29,8 @@ public class AuthorizationTest extends TestBase {
     @Description("go to the authorization page and check it for availability")
     @Story ("test for the presence of an authorization page")
     @Test
-    public void smokeTest() {
-        authorization
+    public void smokeTestBank() {
+        authorizationBankPage
                 .logoIsVisible ();
     }
 
@@ -23,12 +40,12 @@ public class AuthorizationTest extends TestBase {
     @Description("enter valid authorization data and check that we have passed the first stage of authorization")
     @Story ("test for login with valid credentials")
     @Test
-    public void positiveTestAuthorization() {
-        authorization
+    public void positiveTestAuthorizationBank() {
+        authorizationBankPage
                 .fillInUserName ("demo")
                 .fillInPassword ("demo")
                 .enter ();
-        confirmationPage
+        confirmationPageBank
                 .verificationMessagesIsVisible ();
     }
 
@@ -38,8 +55,8 @@ public class AuthorizationTest extends TestBase {
     @Description("enter incorrect authorization data and make sure that we see a warning")
     @Story ("test for login with invalid credentials")
     @Test
-    public void negativeTestAuthorizationNoPassword() {
-        authorization
+    public void negativeTestAuthorizationNoBankPassword() {
+        authorizationBankPage
                 .fillInUserName ("demo")
                 .noPassword ()
                 .enter ()
@@ -52,8 +69,8 @@ public class AuthorizationTest extends TestBase {
     @Description("enter incorrect authorization data and make sure that we see a warning")
     @Story ("test for login with invalid credentials")
     @Test
-    public void negativeTestAuthorizationNoUserName() {
-        authorization
+    public void negativeTestAuthorizationBankNoUserName() {
+        authorizationBankPage
                 .noUserName ()
                 .fillInPassword ("demo")
                 .enter ()
@@ -66,8 +83,8 @@ public class AuthorizationTest extends TestBase {
     @Description("enter incorrect authorization data and make sure that we see a warning")
     @Story ("test for login with invalid credentials")
     @Test
-    public void negativeTestAuthorizationNoLoginNoPassword() {
-        authorization
+    public void negativeTestAuthorizationBankNoLoginNoPassword() {
+        authorizationBankPage
                 .noUserName ()
                 .noPassword ()
                 .enter ()

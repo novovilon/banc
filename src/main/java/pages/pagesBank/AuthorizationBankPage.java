@@ -1,11 +1,11 @@
-package pages;
+package pages.pagesBank;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import pages.BasePage;
 
-public class Authorization extends BasePage {
-    final String pageURL = "https://idemo.bspb" +
+public class AuthorizationBankPage extends BasePage {
+    private static final String pageURL = "https://idemo.bspb" +
             ".ru/auth?response_type=code&client_id=1&redirect_uri=https%3A%2F%2Fidemo" +
             ".bspb.ru%2Flogin%2Fsuccess&prefetch_uri=https%3A%2F%2Fidemo.bspb" +
             ".ru%2Flogin%2Fprefetch&force_new_session=true";
@@ -16,55 +16,50 @@ public class Authorization extends BasePage {
     By loginButton = By.id ("login-button");
     By error = By.xpath ("//div[@class='alert alert-error']");
 
-    public Authorization(WebDriver driver) {
-        super (driver);
-    }
 
 
-    public Authorization open() {
-        driver.get (pageURL);
-        return this;
+    public void open() {
+        get (pageURL);
     }
 
     @Step(value = "logo is visible")
-    public Authorization logoIsVisible() {
+    public AuthorizationBankPage logoIsVisible() {
         isElementDisplayed (logo);
         return this;
     }
 
     @Step(value = "Fill in login with {0}")
-    public Authorization fillInUserName(String text) {
+    public AuthorizationBankPage fillInUserName(String text) {
         writeText (userName, text);
         return this;
     }
 
     @Step(value = "Fill in password with {0}")
-    public Authorization fillInPassword(String text) {
+    public AuthorizationBankPage fillInPassword(String text) {
         writeText (password, text);
         return this;
     }
 
-    @Step (value = "The empty user name field")
-    public Authorization noUserName() {
+    @Step(value = "The empty user name field")
+    public AuthorizationBankPage noUserName() {
         noText (userName);
         return this;
     }
 
-    @Step (value = "The empty password field")
-    public Authorization noPassword() {
+    @Step(value = "The empty password field")
+    public AuthorizationBankPage noPassword() {
         noText (password);
         return this;
     }
 
-    @Step (value = "Click button login")
-    public Authorization enter() {
+    @Step(value = "Click button login")
+    public AuthorizationBankPage enter() {
         click (loginButton);
         return this;
     }
 
-    @Step (value = "Error is visible")
-    public Authorization errorIsVisible() {
-        waitVisibility (error);
+    @Step(value = "Error is visible")
+    public AuthorizationBankPage errorIsVisible() {
         isElementDisplayed (error);
         return this;
     }
