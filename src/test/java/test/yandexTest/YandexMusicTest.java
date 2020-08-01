@@ -33,7 +33,5 @@ public class YandexMusicTest extends BaseTest {
         yandexMusicMainPage
                 .clickAccountIcon()
                 .accountNameAssertTrue("test.y4ndex913.test.test");
-
-
     }
 }
