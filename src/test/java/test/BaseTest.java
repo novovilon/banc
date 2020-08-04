@@ -4,11 +4,19 @@ package test;
 import driver.DriverSingleton;
 import org.testng.annotations.AfterMethod;
 
+
 public class BaseTest {
 
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void finish() {
-        DriverSingleton.quit ();
+
+            DriverSingleton.quit();
+
+
     }
+
+
+
+
 }

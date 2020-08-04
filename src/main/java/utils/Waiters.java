@@ -10,11 +10,11 @@ import java.time.Duration;
 public class Waiters {
 
     public static void waitForElementVisible(WebDriver webDriver, By elementBy) {
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20), Duration.ofMillis(7000));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20), Duration.ofMillis(500));
         wait.until(ExpectedConditions.visibilityOfElementLocated(elementBy));
     }
     public static void waitForElementClickable(WebDriver webDriver, By elementBy) {
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20), Duration.ofMillis(7000));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20), Duration.ofMillis(500));
         wait.until(ExpectedConditions.elementToBeClickable(elementBy));
     }
 }

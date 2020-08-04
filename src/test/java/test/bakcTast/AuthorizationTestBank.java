@@ -13,14 +13,11 @@ public class AuthorizationTestBank extends BaseTest {
     ConfirmationPageBank confirmationPageBank;
 
 
-
     @BeforeMethod
     public void setup(){
         authorizationBankPage = new AuthorizationBankPage();
         confirmationPageBank = new ConfirmationPageBank ();
         authorizationBankPage.open ();
-
-
     }
 
     @Epic ("TESTING FOR Банк санкт-петербург ")
@@ -55,7 +52,7 @@ public class AuthorizationTestBank extends BaseTest {
     @Description("enter incorrect authorization data and make sure that we see a warning")
     @Story ("test for login with invalid credentials")
     @Test
-    public void negativeTestAuthorizationNoBankPassword() {
+    public void negativeTestAuthorizationBankNoPassword() {
         authorizationBankPage
                 .fillInUserName ("demo")
                 .noPassword ()

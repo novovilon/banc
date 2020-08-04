@@ -23,8 +23,8 @@ public class YandexMusicMainPage extends BasePage {
 
     @Step(value = "Click button account")
     public YandexMusicMainPage clickAccountIcon() {
-        windowHandle ();
-        clickJs (accountIcon);
+        windowHandle(0);
+        click(accountIcon);
         return this;
     }
 

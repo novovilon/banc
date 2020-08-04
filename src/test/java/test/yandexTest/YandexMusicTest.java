@@ -13,25 +13,57 @@ public class YandexMusicTest extends BaseTest {
 
     @BeforeMethod
     public void setup(){
-        authorizationYandexMusicPage = new AuthorizationYandexMusicPage ();
-        yandexMusicMainPage = new YandexMusicMainPage ();
-        yandexMusicMainPage.open ();
+        authorizationYandexMusicPage = new AuthorizationYandexMusicPage();
+        yandexMusicMainPage = new YandexMusicMainPage();
+        yandexMusicMainPage.open();
     }
 
     @Epic("TESTING FOR Яндекс.Музыка ")
     @Feature(value = "Authorization")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("enter valid authorization data and check that we have passed the first stage of authorization")
+    @Description("enter valid authorization details and make sure we have passed the authorization step")
     @Story ("test for login with valid credentials")
     @Test
     public void positiveTestYandexMusicAuthorization() {
         yandexMusicMainPage
-                .clickLoginButton ();
+                .clickLoginButton();
         authorizationYandexMusicPage
-                .fillInUserNameEnter ("test.y4ndex913.test.test")
-                .fillInPasswordEnter ("zyf2971313");
+                .fillInUserNameEnter("test.y4ndex913.test.test")
+                .fillInPasswordEnter("zyf2971313");
         yandexMusicMainPage
                 .clickAccountIcon()
                 .accountNameAssertTrue("test.y4ndex913.test.test");
     }
+
+    @Epic("TESTING FOR Яндекс.Музыка ")
+    @Feature(value = "Authorization")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("enter not valid authorization data and make sure that we have not passed the authorization stage")
+    @Story ("test for login with not valid credentials")
+    @Test
+    public void negativeTestYandexMusicAuthorization() {
+        yandexMusicMainPage
+                .clickLoginButton();
+        authorizationYandexMusicPage
+                .fillInUserNameEnter("test.y4ndex913.test.test")
+                .fillInPasswordEnter("zyf29713")
+                .errorMessagesIsDisplayed ();
+    }
+
+    @Epic("TESTING FOR Яндекс.Музыка ")
+    @Feature(value = "Authorization")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("enter not valid authorization data and make sure that we have not passed the authorization stage")
+    @Story ("test for logging in without a password")
+    @Test
+    public void negativeTestYandexMusicAuthorizationNoPassword() {
+        yandexMusicMainPage
+                .clickLoginButton();
+        authorizationYandexMusicPage
+                .fillInUserNameEnter("test.y4ndex913.test.test")
+                .fillInPasswordEnter("")
+                .errorMessagesIsDisplayed();
+    }
+
+
 }

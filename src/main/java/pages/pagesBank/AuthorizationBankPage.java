@@ -14,7 +14,7 @@ public class AuthorizationBankPage extends BasePage {
     By userName = By.xpath ("//input[@placeholder='Логин']");
     By password = By.xpath ("//input[@placeholder='Пароль']");
     By loginButton = By.id ("login-button");
-    By error = By.xpath ("//div[@class='alert alert-error']");
+    By errorMessages = By.xpath ("//div[@class='alert alert-error']");
 
 
 
@@ -60,7 +60,7 @@ public class AuthorizationBankPage extends BasePage {
 
     @Step(value = "Error is visible")
     public AuthorizationBankPage errorIsVisible() {
-        isElementDisplayed (error);
+        isElementDisplayed (errorMessages);
         return this;
     }
 }
