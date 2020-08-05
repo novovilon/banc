@@ -1,11 +1,11 @@
-#Test Framework in java
+Test Framework in java
 
 - Selenium 4.0.0-alpha-5
 - Testng 7.1.0
 - Log4j-core 2.11.1
 - Allure-testng 2.13.3
 
-##building a project using __maven__
+building a project using __maven__
 
 For allure, add a new file to the  `resources` folder `allure.properties`
 
