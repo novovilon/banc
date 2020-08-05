@@ -11,56 +11,56 @@ public class AuthorizationBankPage extends BasePage {
             ".ru%2Flogin%2Fprefetch&force_new_session=true";
 
     By logo = By.id ("logo");
-    By userName = By.xpath ("//input[@placeholder='Логин']");
-    By password = By.xpath ("//input[@placeholder='Пароль']");
-    By loginButton = By.id ("login-button");
-    By errorMessages = By.xpath ("//div[@class='alert alert-error']");
+    By userName = By.xpath("//input[@placeholder='Логин']");
+    By password = By.xpath("//input[@placeholder='Пароль']");
+    By loginButton = By.id("login-button");
+    By errorMessages = By.xpath("//div[@class='alert alert-error']");
 
 
 
     public void open() {
-        get (pageURL);
+        get(pageURL);
     }
 
     @Step(value = "logo is visible")
     public AuthorizationBankPage logoIsVisible() {
-        isElementDisplayed (logo);
+        isElementDisplayed(logo);
         return this;
     }
 
     @Step(value = "Fill in login with {0}")
     public AuthorizationBankPage fillInUserName(String text) {
-        writeText (userName, text);
+        writeText(userName, text);
         return this;
     }
 
     @Step(value = "Fill in password with {0}")
     public AuthorizationBankPage fillInPassword(String text) {
-        writeText (password, text);
+        writeText(password, text);
         return this;
     }
 
     @Step(value = "The empty user name field")
     public AuthorizationBankPage noUserName() {
-        noText (userName);
+        noText(userName);
         return this;
     }
 
     @Step(value = "The empty password field")
     public AuthorizationBankPage noPassword() {
-        noText (password);
+        noText(password);
         return this;
     }
 
     @Step(value = "Click button login")
     public AuthorizationBankPage enter() {
-        click (loginButton);
+        click(loginButton);
         return this;
     }
 
     @Step(value = "Error is visible")
     public AuthorizationBankPage errorIsVisible() {
-        isElementDisplayed (errorMessages);
+        isElementDisplayed(errorMessages);
         return this;
     }
 }

@@ -11,9 +11,9 @@ public class ConfirmationPageBank extends BasePage {
 
     By verificationMessages = By.id ("otp-code-text");
 
-    @Step (value = "verification messages is visible")
+    @Step(value = "verification messages is visible")
     public ConfirmationPageBank verificationMessagesIsVisible() {
-        isElementDisplayed (verificationMessages);
+        isElementDisplayed(verificationMessages);
         return this;
     }
 

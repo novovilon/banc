@@ -10,7 +10,7 @@ public class AuthorizationYandexMusicPage extends BasePage {
 
     By userName = By.id("passp-field-login");
     By password = By.id("passp-field-passwd");
-    By errorMessages = By.xpath ("//div[@class='passp-form-field__error']");
+    By errorMessages = By.xpath("//div[@class='passp-form-field__error']");
 
     @Step(value = "Fill in login with {0}, press enter")
     public AuthorizationYandexMusicPage fillInUserNameEnter(String text) {

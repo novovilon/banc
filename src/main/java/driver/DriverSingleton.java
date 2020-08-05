@@ -18,19 +18,19 @@ public class DriverSingleton {
     }
 
     public static WebDriver getDriver() {
-        if (driver == null) {
+        if(driver == null) {
             driverStart();
         }
         return driver;
     }
 
     private static void driverStart(){
-        WebDriverManager.chromedriver ().setup ();
-        driver = new EventFiringWebDriver (new ChromeDriver ());
-        driver.register(new WebDriverListener ());
-        driver.manage ().window ().maximize ();
-        driver.manage ().deleteAllCookies ();
-        driver.manage ().timeouts ().implicitlyWait (15, TimeUnit.SECONDS);
+        WebDriverManager.chromedriver().setup();
+        driver = new EventFiringWebDriver(new ChromeDriver ());
+        driver.register(new WebDriverListener());
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
     public static void quit() {

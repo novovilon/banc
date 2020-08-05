@@ -10,20 +10,17 @@ import org.testng.ITestResult;
 
 public class TestListener implements ITestListener {
 
-    private WebDriver webDriver = DriverSingleton.getDriver ();
+
 
     @Override
     public void onTestFailure(ITestResult result) {
-        saveScreenshotOnFailure(webDriver);
+        ScreenShotService.saveScreenshot();
     }
 
     @Override
     public void onTestFailedWithTimeout(ITestResult result) {
-        saveScreenshotOnFailure(webDriver);
+        ScreenShotService.saveScreenshot();
     }
 
-    @Attachment(value = "Screenshot", type = "image/png")
-    public byte[] saveScreenshotOnFailure(WebDriver driver) {
-        return ((TakesScreenshot) driver).getScreenshotAs (OutputType.BYTES);
-    }
+
 }

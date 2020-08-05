@@ -65,5 +65,21 @@ public class YandexMusicTest extends BaseTest {
                 .errorMessagesIsDisplayed();
     }
 
+    @Epic("TESTING FOR Яндекс.Музыка ")
+    @Feature(value = "Authorization")
+    @Severity(SeverityLevel.TRIVIAL)
+    @Description("not a working test to check if a screenshot is possible")
+    @Story ("test, log in with valid credentials")
+    @Test
+    public void notAWorkingTest() {
+        yandexMusicMainPage
+                .clickLoginButton();
+        authorizationYandexMusicPage
+                .fillInUserNameEnter("test.y4ndex913.test.test")
+                .fillInPasswordEnter("zyf2971313");
+        yandexMusicMainPage
+                .clickAccountIcon()
+                .accountNameAssertTrue("test.y4ndex913.test");
+    }
 
 }

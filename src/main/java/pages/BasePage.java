@@ -60,7 +60,7 @@ public class BasePage {
     //переключения странички
     public void windowHandle() {
         for (String windowHandle : webDriver.getWindowHandles()) {
-            webDriver.switchTo().window (windowHandle);
+            webDriver.switchTo().window(windowHandle);
         }
     }
 
@@ -76,13 +76,13 @@ public class BasePage {
     public void clickJs(By elementBy) {
         WebElement button = webDriver.findElement (elementBy);
         JavascriptExecutor js = (JavascriptExecutor) webDriver;
-        js.executeScript ("arguments[0].click();", button);
+        js.executeScript("arguments[0].click();", button);
     }
 
     //проверка на отображения элемента Js
     public void isElementDisplayedJs(By elementBy) {
         WebElement ele = webDriver.findElement(elementBy);
-        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+        JavascriptExecutor js = (JavascriptExecutor)webDriver;
         String assets = (String) js.executeScript("return arguments[0]" +
                 ".getElementsByTagName('span')[1].textContent;", ele);
     }
